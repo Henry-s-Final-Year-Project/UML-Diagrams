@@ -1,0 +1,37 @@
+{
+  "_id": { "$oid": "6756259bb0cc8d115da20e5f" },
+  "transactionId": { "$oid": "6756059ffc13ae2a44e1c26f" },
+  "accountId": { "$oid": "6756059ffc13ae2a44e1c270" },
+  "amount": { "$numberDouble": "551.82" },
+  "currency": "USD",
+  "auth": true,
+  "authCode": { "$numberInt": "173737" },
+  "created": "2024-12-08T00:00:00Z",
+  "status": "PENDING",
+  "paymentMethod": {
+    "type": "DEBIT_CARD",
+    "provider": "GooglePay",
+    "card": {
+      "firstNumbers": { "$numberInt": "600538" },
+      "lastNumbers": { "$numberInt": "5288" },
+      "scheme": "mastercard"
+    }
+  },
+  "merchant": { "id": { "$oid": "6756059ffc13ae2a44e1c271" }, "name": null },
+  "location": {
+    "address": "668 Helena Junction",
+    "city": "Yuguan",
+    "countryCode": "CN",
+    "postcode": null,
+    "geolocation": {
+      "latitude": { "$numberDouble": "39.772554" },
+      "longitude": { "$numberDouble": "98.289419" }
+    }
+  },
+  "deviceInfo": {
+    "type": "SMARTPHONE",
+    "os": "Android 2.3.7, up to 4.0.4, Sense UI 3.5",
+    "model": "HTC Velocity 4G"
+  },
+  "identifiers": { "MID": { "$oid": "6756059ffc13ae2a44e1c272" } }
+}

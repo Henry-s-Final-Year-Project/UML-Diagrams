@@ -1,0 +1,35 @@
+@startuml DFD
+!define COMPONENT component
+!define DATABASE database
+
+skinparam defaultFontName Arial
+skinparam arrowColor black
+skinparam componentBackgroundColor white
+
+allowmixing
+
+DATABASE "Kaggle Dataset" as KD
+COMPONENT "Credit Card System" as CCS
+COMPONENT "Mobile Payment System" as MPS
+
+COMPONENT "Data Ingestion Service" as DI
+COMPONENT "Fraud Detection Models" as FDM
+COMPONENT "Real-time Processing Service" as RTP
+COMPONENT "Alerting Service" as AG
+COMPONENT "Dashboard" as UI
+
+DATABASE "Historical Transaction DB" as HTDB
+
+KD --> FDM : Training data
+CCS --> DI : Credit card data
+MPS --> DI : Mobile payment data
+
+DI --> FDM : Processed data
+DI --> HTDB : Store data
+
+RTP --> UI: Display Metrics
+FDM --> RTP : Model predictions
+RTP --> AG : Potential fraud cases
+
+@enduml
+

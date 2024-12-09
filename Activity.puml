@@ -1,0 +1,34 @@
+@startuml ActivityDiagram
+
+start
+
+:Transaction initiated;
+
+:Ingest data through Kafka;
+
+fork
+    :Process transaction data;
+fork again
+    :Retrieve historical data (if needed);
+end fork
+
+:Determine transaction type;
+
+if (Transaction type = "Credit Card"?) then (yes)
+    :Apply Credit Card fraud detection model;
+else
+    :Apply Mobile Payment fraud detection model;
+endif
+
+:Check if transaction is suspicious;
+
+if (Suspicious?) then (yes)
+    :Generate alert and flag transaction;
+else
+    :Proceed with transaction;
+endif
+
+:Store transaction data;
+stop
+
+@enduml

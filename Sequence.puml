@@ -1,0 +1,18 @@
+@startuml SequenceDiagram
+actor User
+actor "Payment System" as PS
+participant Kafka
+participant Flink
+participant "Fraud Detection Model" as FDM
+participant Database
+participant "Alert System" as AS
+
+User -> PS : Initiates transaction
+PS -> Kafka : Sends transaction data
+Kafka -> Flink : Streams transaction data
+Flink -> FDM : Process data for fraud detection
+FDM -> Database : Store transaction data
+FDM -> AS : Generate alert if fraud detected
+AS -> Database : Store alert
+
+@enduml
